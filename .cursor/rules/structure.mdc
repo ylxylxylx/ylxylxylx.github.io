@@ -1,0 +1,141 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# 项目架构文档
+
+## 项目概述
+
+这是一个基于 Next.js 构建的个人博客网站，使用了现代化的前端技术栈。该网站支持博客文章的展示、分类浏览、分页功能以及评论系统。
+
+## 技术栈
+
+### 核心框架与库
+- **Next.js (v15.1.6)**: 用于服务端渲染和静态站点生成
+- **React (v19.0.0)**: 用户界面构建
+- **TypeScript**: 提供类型安全和代码可维护性
+- **Tailwind CSS**: 用于样式设计和响应式布局
+
+### Markdown 处理
+- **gray-matter**: 解析 Markdown 文件的前置元数据
+- **remark**: Markdown 处理器
+- **rehype**: HTML 处理器
+- **rehype-highlight**: 代码高亮支持
+
+### 交互功能
+- **@giscus/react**: 基于 GitHub Discussions 的评论系统
+
+### 构建工具
+- **pnpm**: 包管理器
+- **ESLint**: 代码质量检查
+- **PostCSS**: CSS 处理工具
+
+## package.json dependencies
+```json
+{
+    "@giscus/react": "^3.1.0",
+    "@tailwindcss/typography": "^0.5.16",
+    "gray-matter": "^4.0.3",
+    "highlight.js": "^11.11.1",
+    "next": "15.1.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "rehype-highlight": "^7.0.2",
+    "rehype-slug": "^6.0.0",
+    "rehype-stringify": "^10.0.1",
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.1",
+    "remark-rehype": "^11.1.1"
+}
+```
+
+## 项目结构
+
+```
+├── app/                    # Next.js 应用程序文件夹 (App Router)
+│   ├── about/              # 关于页面
+│   ├── categories/         # 分类页面
+│   │   └── [category]/     # 动态分类路由
+│   │       └── [page]/     # 分类分页路由
+│   ├── page/               # 主页面
+│   │   └── [id]/           # 分页路由
+│   ├── post/               # 文章页面
+│   │   └── [id]/           # 动态文章路由
+│   ├── globals.css         # 全局样式
+│   ├── layout.tsx          # 根布局组件
+│   └── page.tsx            # 主页组件 (重定向到 /page/1)
+│
+├── components/             # React 组件
+│   ├── category-sidebar.tsx  # 分类侧边栏组件
+│   ├── comments.tsx        # 评论系统组件 (giscus)
+│   ├── header.tsx          # 页面头部组件
+│   ├── image-preview.tsx   # 图片预览组件
+│   ├── page-layout.tsx     # 页面布局组件
+│   ├── pagination.tsx      # 分页组件
+│   └── post-list.tsx       # 文章列表组件
+│
+├── posts/                  # Markdown 文章文件
+│   └── *.md                # 各个博客文章
+│
+├── public/                 # 静态资源
+│
+├── types/                  # TypeScript 类型定义
+│
+├── utils/                  # 工具函数
+│   └── post.ts             # 文章处理函数
+│
+├── .env                    # 环境变量
+├── next.config.ts          # Next.js 配置
+├── tailwind.config.ts      # Tailwind CSS 配置
+├── tsconfig.json           # TypeScript 配置
+└── package.json            # 项目依赖和脚本
+```
+
+## 主要功能模块
+
+### 1. 博客文章渲染
+- 使用 Markdown 格式存储文章内容
+- 通过 remark/rehype 处理器转换为 HTML
+- 支持代码高亮和 slug 生成
+
+### 2. 分类系统
+- 从文章前置元数据中提取分类信息
+- 支持按分类浏览文章
+- 分类侧边栏显示所有可用分类
+
+### 3. 分页功能
+- 首页和分类页面支持分页浏览
+- 使用动态路由实现分页 URL
+
+### 4. 评论系统
+- 集成 Giscus 评论组件
+- 基于 GitHub Discussions 存储和管理评论
+
+### 5. 静态站点生成
+- 使用 Next.js 的静态生成功能预渲染页面
+- `generateStaticParams` 函数生成所有可能的路由参数
+
+## 数据流向
+
+1. **文章数据处理**:
+   - 从 `/posts` 目录读取 Markdown 文件
+   - 使用 gray-matter 解析前置元数据
+   - 使用 remark/rehype 处理 Markdown 内容
+   - 将处理后的内容传递给页面组件
+
+2. **页面渲染流程**:
+   - 通过 Next.js App Router 匹配 URL 到相应页面组件
+   - 页面组件从 utils/post.ts 获取所需数据
+   - 根据路由参数 (分类/页码) 过滤和分页数据
+   - 渲染数据到 UI 组件 (PostList, Pagination 等)
+
+3. **用户交互**:
+   - 通过分类侧边栏和分页组件导航内容
+   - 文章页面集成 Giscus 评论功能
+
+## 部署方式
+
+项目使用 Next.js 构建，可以部署为静态网站托管在 GitHub Pages 上。构建过程可能通过 GitHub Actions 自动化，生成的静态文件位于 `/out` 目录。
+
+
