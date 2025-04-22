@@ -107,7 +107,7 @@
 }
 
 /* 暗色模式 */
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   .kindle-container {
     background-color: #1a1a1a;
   }
@@ -157,4 +157,4 @@
       @apply border-gray-700;
     }
   }
-} */
+}
