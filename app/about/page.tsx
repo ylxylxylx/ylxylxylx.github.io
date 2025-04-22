@@ -7,8 +7,9 @@ export default function AboutPage() {
         {/* 个人信息头部 */}
         <div className="flex flex-col md:flex-row items-center mb-8">
           <div className="w-48 h-48 relative mb-4 md:mb-0 md:mr-8">
+            {/* https://avatars.githubusercontent.com/u/41711206?v=4 */}
             <img
-              src="https://avatars.githubusercontent.com/u/41711206?v=4"
+              src="/public/bigHead.jpg"
               alt="个人头像"
               className="rounded-full object-cover block w-full"
             />
@@ -33,10 +34,8 @@ export default function AboutPage() {
               "React",
               "Vue",
               "TypeScript",
-              "Next.js",
-              "Nuxt.js",
+              "Cesium",
               "NodeJS",
-              "Tailwind CSS",
               "JavaScript",
               "HTML/CSS",
             ].map((tech) => (
@@ -56,9 +55,10 @@ export default function AboutPage() {
             关于我
           </h2>
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-            作为一名前端开发工程师，我专注于构建高性能、可访问性强的 Web 应用。
+            {/* 作为一名前端开发工程师，我专注于构建高性能、可访问性强的 Web 应用。
             我热衷于学习新技术，并将其应用到实际项目中。在工作中，我注重代码质量和用户体验，
-            善于与团队协作，共同打造优秀的产品。
+            善于与团队协作，共同打造优秀的产品。 */}
+            分享一些学习技术的经验以及做项目遇到的问题和解决，同时锻炼一下自己表达能力。文字叙述可能不是很精确，有疑问可以提出来大家一起进步！
           </p>
         </section>
 
@@ -72,7 +72,7 @@ export default function AboutPage() {
               <h3 className="font-semibold dark:text-white">
                 高级前端开发工程师
               </h3>
-              <p className="text-gray-600 dark:text-gray-400">2018 - 至今</p>
+              <p className="text-gray-600 dark:text-gray-400">2020 - 至今</p>
               <p className="text-gray-700 dark:text-gray-300">
                 负责公司核心产品的前端开发，优化用户体验，提升应用性能
               </p>
