@@ -9,7 +9,7 @@ export default function AboutPage() {
           <div className="w-48 h-48 relative mb-4 md:mb-0 md:mr-8">
             {/* https://avatars.githubusercontent.com/u/41711206?v=4 */}
             <img
-              src="/public/bigHead.jpg"
+              src="/bigHead.jpg"
               alt="个人头像"
               className="rounded-full object-cover block w-full"
             />
