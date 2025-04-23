@@ -1,3 +1,11 @@
+/*
+ * @Author: ylx
+ * @Description: 
+ * @Date: 2025-04-22 15:47:27
+ * @LastEditors: ylx
+ * @LastEditTime: 2025-04-23 10:36:37
+ * @FilePath: \ylxylxylx.github.io\components\header.tsx
+ */
 import Link from "next/link";
 
 const Header = () => {
@@ -28,7 +36,7 @@ const Header = () => {
         <Link className="text-gray-500" href="/about">
           About
         </Link>
-        <Link
+        {/* <Link
           className="text-gray-500 flex items-center"
           href="/rss.xml"
           target="_blank"
@@ -46,7 +54,7 @@ const Header = () => {
             />
           </svg>
           RSS
-        </Link>
+        </Link> */}
       </ul>
     </header>
   );
