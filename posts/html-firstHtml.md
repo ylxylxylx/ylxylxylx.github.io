@@ -1,7 +1,7 @@
 ---
 title: "2. 第一个网页：前端基础入门"
 date: "2025-05-07"
-categories: "Front-End Development"
+categories: "FrontEndDevelopment"
 summary: "前端入门第一课，涵盖网页文件基础认知、浏览器发展简史及标准声明。"
 ---
 

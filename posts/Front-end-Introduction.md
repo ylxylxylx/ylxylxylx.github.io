@@ -1,7 +1,7 @@
 ---
 title: "1. 用户之窗: 前端开发简介"
 date: "2025-05-07"
-categories: "Front-End Development"
+categories: "FrontEndDevelopment"
 summary: "前端开发（Front-End Development）是构建网站或应用 **用户直接交互界面** 的技术领域"
 ---
 
